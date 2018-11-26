@@ -16,8 +16,10 @@ public class LoginController {
 
 **Annotations**:
 - **Controller** - tells Spring that the class is a controller.
-- **RequestMapping("** `url` **")** - links the selected `url` to the method that will process the request.
+- **RequestMapping("** value=`url` **")** - links the selected `url` to the method that will process the request. In addiction is possible to specify the type of the request need: **method = `RequestMethod.GET`**.
 - **ResponseBody** - says to Spring to do not search for a a view named as the returned string but to elaborate that string as the page body.
+
+---
 
 ## application.properties
 - **logging.level.org.springframework<span>.</span>web** - set the type of informations logged in the console:
@@ -33,5 +35,3 @@ public class LoginController {
 3. `Help` > `Find Action..`
 4. search `registry`
 5. check `compiler.automake.allow.when.app.running`
-
----
