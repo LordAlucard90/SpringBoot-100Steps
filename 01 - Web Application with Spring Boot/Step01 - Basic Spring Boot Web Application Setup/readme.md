@@ -67,7 +67,7 @@ I have to use version 2.1.0 so I'll annotate the differences from the two versio
   - **spring-boot-starter-web** - web dependencies.
   - **spring-boot-devtools** - dev tools dependencies.
   - **spring-boot-starter-test** - test tools dependencies.
-- **** -
+
 
 ### Plugins
 - **org.springframework.boot**
