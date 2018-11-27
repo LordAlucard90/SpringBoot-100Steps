@@ -79,3 +79,9 @@ or
 The first solution keeps maven from IntelliJ, the second one needs maven installed on the sysyem, so I prefer the first one.
 
 The good news is that the livereload still works and is possible restart the applications from the `run` windows keeping the maven command on.
+
+---
+
+## Spring Boot 2.1.0 vs Spring Boot 1.4.3
+
+In the tutorial the `jsp` files are created on `src/main/webapp/WEB-INF/jsp/`.
