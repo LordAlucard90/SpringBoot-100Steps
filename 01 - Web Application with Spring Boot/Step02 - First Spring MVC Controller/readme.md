@@ -17,7 +17,7 @@ public class LoginController {
 **Annotations**:
 - **Controller** - tells Spring that the class is a controller.
 - **RequestMapping("** value=`url` **")** - links the selected `url` to the method that will process the request. In addiction is possible to specify the type of the request need: **method = `RequestMethod.GET`**.
-- **ResponseBody** - says to Spring to do not search for a a view named as the returned string but to elaborate that string as the page body.
+- **ResponseBody** - says to `DispatcherServlet` to do not search for a a view named as the returned string but to elaborate that string as the page body.
 
 ---
 
