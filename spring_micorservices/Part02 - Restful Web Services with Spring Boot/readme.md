@@ -13,4 +13,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 5. **Implementing GET and POST Methods**
   - UserResource, @Autowired, JSON Date Formatting, @PostMapping, @RequestBody, @ServletUriComponentsBuilder, Postman.
 6. **Exception Handling**
-  - 404, @ResponseStatus.
+  - 404, @ResponseStatus, Generic Exception Handling, @ExceptionHandler.
