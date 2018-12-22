@@ -5,6 +5,8 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 1. **Initializing a RESTful Services Project with Spring Boot**
   - Spring Initializr, Import project, Structure Overview.
 2. **Creating a Hello World Service**
-  - RestController, RequestMapping, Mapping Shortcuts, Return Beans, Path Variables.
+  - @RestController, @RequestMapping, Mapping Shortcuts, Return Beans, @PathVariable.
 3. **Quick Review of Spring Boot Auto Configuration and Dispatcher Servlet**
   - Debug Mode, Auto-Configuration Report, Dispatcher Servlet.
+4. **Creating User Bean and User Service**
+  - User, UserDaoService, @Component.
