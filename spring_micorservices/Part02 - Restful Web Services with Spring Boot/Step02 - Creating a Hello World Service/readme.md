@@ -97,6 +97,24 @@ The controller will return by default a JSON object with all the getters impleme
 }
 ```
 ---
+## PathVariable
+
+It is possible pass values to the function through the request URL:
+
+```java
+import org.springframework.web.bind.annotation.PathVariable;
+
+@RestController
+public class HelloWorldController {
+  ...
+    @GetMapping(path = "/hello-world/{name}")
+    public HelloWorldBean helloWorldBean(@PathVariable String name){
+        return new HelloWorldBean(String.format("Hello World: %s!", name));
+    }
+}
+```
+
+---
 
 ## Enable spring-boot-devtools livereload on IntelliJ IDEA
 
