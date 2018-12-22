@@ -10,3 +10,5 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   - Debug Mode, Auto-Configuration Report, Dispatcher Servlet.
 4. **Creating User Bean and User Service**
   - User, UserDaoService, @Component.
+5. **Implementing GET and POST Methods**
+  - UserResource, @Autowired, JSON Date Formatting.
