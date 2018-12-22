@@ -6,3 +6,5 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   - Spring Initializr, Import project, Structure Overview.
 2. **Creating a Hello World Service**
   - RestController, RequestMapping, Mapping Shortcuts, Return Beans.
+3. **Quick Review of Spring Boot Auto Configuration and Dispatcher Servlet**
+  - Debug Mode, Auto-Configuration Report, Dispatcher Servlet.
