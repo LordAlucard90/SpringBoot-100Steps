@@ -44,3 +44,25 @@ public class User {
 `@Past` restrict a date to a past value only.
 
 ---
+
+## Improving Validation Error Messages
+
+By default the validation error response is **400** Bad Request, without additional information.
+
+It is possible to customize the error message overriding the default **handleMethodArgumentNotValid** method:
+
+```java
+@ControllerAdvice
+@RestController
+public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+  ...
+
+  @Override
+  protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+      ExceptionResponse exResponse = new ExceptionResponse(new Date(),
+                                                           "Validation Failed",
+                                                           ex.getBindingResult().getAllErrors().toString());
+        return new ResponseEntity(exResponse, HttpStatus.BAD_REQUEST);
+    }
+}
+```
