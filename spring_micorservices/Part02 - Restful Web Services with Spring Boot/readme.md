@@ -18,4 +18,5 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   - Delete , @DeleteMapping.
 8. **Data Validation**
   - Validation, @Valid, @Size, @Past, Improving Validation Error Messages.
-9. **HATEOAS And Advanced Features**
+9. **HATEOAS**
+  - HATEOAS, Resource<T>, ControllerLinkBuilder.
