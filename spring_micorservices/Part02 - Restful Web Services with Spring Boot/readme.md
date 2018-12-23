@@ -17,3 +17,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 7. **Implementing DELETE Method**
   - Delete , @DeleteMapping.
 8. **Data Validation**
+  - Validation, @Valid, @Size, @Past.
