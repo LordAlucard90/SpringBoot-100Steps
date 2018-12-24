@@ -52,3 +52,17 @@ public class SwaggerConfig {
 It is possible view the documentation at:
 - http://localhost:8080/v2/api-docs
 - http://localhost:8080/swagger-ui.html
+
+---
+
+## Documentation
+
+The main information on `/v2/api-docs` is
+
+- **swagger** - swagger version.
+- **info** - service api information such as description, versions and license.
+- **host** - the service host.
+- **basepath** - the service basepath.
+- **tags** - tag used to group the resources and resources methods.
+- **path** - paths of all the resources exposed and the different operations exposed.
+- **definitions** - contains the different element in the api.

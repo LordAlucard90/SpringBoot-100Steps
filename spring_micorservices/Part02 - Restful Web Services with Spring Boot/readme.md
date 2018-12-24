@@ -23,4 +23,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 0. **Step10 - Internationalization And Content Negotiation**
   - LocalResolver, ResourceBundleMessageSource, Using MessageSource, @RequestHeader, Content Negotiation.
   0. **Step11 - Swagger Documentation**
-  - Generation, @Configuration, @EnableSwagger2, Docket, DocumentationType.
+  - Generation, @Configuration, @EnableSwagger2, Docket, DocumentationType, Documentation.
