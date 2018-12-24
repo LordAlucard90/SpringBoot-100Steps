@@ -66,3 +66,75 @@ The main information on `/v2/api-docs` is
 - **tags** - tag used to group the resources and resources methods.
 - **path** - paths of all the resources exposed and the different operations exposed.
 - **definitions** - contains the different element in the api.
+- **consumes** - the input data type.
+- **produces** - the output data type.
+
+---
+
+## Enhancing Documentation
+
+It is possible to improve the general documentation with:
+
+```java
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+    public static final Contact DEFAULT_CONTACT = new Contact(
+            "LordAlucard90",
+            "https://github.com/LordAlucard90",
+            "email@example.com");
+
+    public static final ApiInfo DEFAULT_API_INFO = new ApiInfo(
+            "Simple Social Site",
+            "This is a simple social site application.",
+            "1.0",
+            "urn:tos",
+             DEFAULT_CONTACT,
+            "Apache 2.0",
+            "http://www.apache.org/licenses/LICENSE-2.0",
+            new ArrayList());
+
+    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES =
+            new HashSet<String>(Arrays.asList("application/json", "application/xml"));
+
+    @Bean
+    public Docket api(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(DEFAULT_API_INFO)
+                .produces(DEFAULT_PRODUCES_AND_CONSUMES)
+                .consumes(DEFAULT_PRODUCES_AND_CONSUMES);
+    }
+
+}
+```
+
+`apiInfo` extends the base application api info.
+
+`produces`, `consumes` extend the input and output type info.
+
+It is also possible extend the model documentation info:
+
+```java
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "This is a social site user.")
+public class User {
+    private Integer id;
+
+    @Size(min = 2, message = "Name should have at least 2 characters")
+    @ApiModelProperty(notes = "Name should have at least 2 characters.")
+    private String name;
+
+    @Past
+    @ApiModelProperty(notes = "Birth date should be in the past.")
+    private Date birthDate;
+
+		...
+}
+```
+
+`@ApiModel` adds general info about the model.
+
+`@ApiModelProperty` adds specific info about model fields.
