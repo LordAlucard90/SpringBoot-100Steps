@@ -20,3 +20,5 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   - Validation, @Valid, @Size, @Past, Improving Validation Error Messages.
 9. **HATEOAS**
   - HATEOAS, Resource<T>, ControllerLinkBuilder.
+0. **Step10 - Internationalization And Content Negotiation**
+  - LocalResolver, ResourceBundleMessageSource, Using MessageSource, @RequestHeader, Content Negotiation.
