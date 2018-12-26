@@ -29,4 +29,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 3. **Filtering**
   - Static Filtering, @JsonIgnore, @JsonIgnoreProperties, Dynamic Filtering, MappingJacksonValue, FilterProvider, @JsonFilter.
 4. **Versioning And Authentication**
-  - URIs, Request Parameter.
+  - URIs, Request Parameter, Header Parameter.
