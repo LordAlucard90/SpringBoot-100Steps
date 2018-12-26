@@ -20,11 +20,12 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   - Validation, @Valid, @Size, @Past, Improving Validation Error Messages.
 9. **HATEOAS**
   - HATEOAS, Resource<T>, ControllerLinkBuilder.
-0. **Step10 - Internationalization And Content Negotiation**
+0. **Internationalization And Content Negotiation**
   - LocalResolver, ResourceBundleMessageSource, Using MessageSource, @RequestHeader, Content Negotiation.
-1. **Step11 - Swagger Documentation**
+1. **Swagger Documentation**
   - Generation, @Configuration, @EnableSwagger2, Docket, DocumentationType, Documentation, Enhancing Documentation, apiInfo, @ApiModel, @ApiModelProperty.
-2. **Step12 - Monitoring APIs**
+2. **Monitoring APIs**
   - Monitoring, Actuator, HAL Browser.
-3. **Step13 - Filtering**
+3. **Filtering**
   - Static Filtering, @JsonIgnore, @JsonIgnoreProperties, Dynamic Filtering, MappingJacksonValue, FilterProvider, @JsonFilter.
+4. **Versioning And Authentication**
