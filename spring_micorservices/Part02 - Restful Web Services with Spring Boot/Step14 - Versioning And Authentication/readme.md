@@ -56,3 +56,27 @@ public class VersioningController {
     }
 }
 ```
+---
+
+## Request Parameter
+
+It is also possible set the version on a request parameter:
+
+```java
+@RestController
+public class VersioningController {
+  ...
+
+  @GetMapping(value = "person", params = "version=1")
+  public PersonV1 paramV1(){
+      return new PersonV1("Pinco Pallino");
+  }
+
+  @GetMapping(value = "person", params = "version=2")
+  public PersonV2 paramV2(){
+      return new PersonV2(new Name("Pinco", "Pallino"));
+  }
+}
+```
+
+The request uri for version 1 will be: `/person?version=1`
