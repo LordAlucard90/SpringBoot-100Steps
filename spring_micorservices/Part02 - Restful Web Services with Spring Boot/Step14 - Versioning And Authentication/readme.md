@@ -103,3 +103,33 @@ public class VersioningController {
   }
 }
 ```
+---
+
+## Content Negotiation
+
+In this case the `Accept` header parameter will be overridden:
+
+```java
+@RestController
+public class VersioningController {
+  ...
+
+  @GetMapping(value = "person", produces = "application/vnd.company.app-v1+json")
+  public PersonV1 producesV1(){
+      return new PersonV1("Pinco Pallino");
+  }
+
+  @GetMapping(value = "person", produces = "application/vnd.company.app-v2+json")
+  public PersonV2 producesV2(){
+      return new PersonV2(new Name("Pinco", "Pallino"));
+  }
+}
+```
+---
+
+## Choice Factors
+
+- **URI Pollution** - The first two solution cause uri pollution.
+- **Caching** - The last two solution cause complicated cache.
+- **Browser Interactions** - The last two solution cannot be executed on common browsers.
+- **Api Documentation** - Generate documentation on the first two solutions is easier than the last ones.
