@@ -26,3 +26,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   - Generation, @Configuration, @EnableSwagger2, Docket, DocumentationType, Documentation, Enhancing Documentation, apiInfo, @ApiModel, @ApiModelProperty.
 2. **Step12 - Monitoring APIs**
   - Monitoring, Actuator, HAL Browser.
+3. **Step13 - Filtering**
