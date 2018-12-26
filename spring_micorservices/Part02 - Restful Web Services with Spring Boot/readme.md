@@ -27,3 +27,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 2. **Step12 - Monitoring APIs**
   - Monitoring, Actuator, HAL Browser.
 3. **Step13 - Filtering**
+  - Static Filtering.
