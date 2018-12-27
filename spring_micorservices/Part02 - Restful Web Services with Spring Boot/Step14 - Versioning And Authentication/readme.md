@@ -1,4 +1,4 @@
-## Step 14 - Versioning And Authentication
+# Step 14 - Versioning And Authentication
 
 If two different consumers want two different response from the same object like:
 
@@ -37,7 +37,7 @@ public class Name {
 }
 ```
 
-# URIs
+## URIs
 
 An uri based solution is:
 
