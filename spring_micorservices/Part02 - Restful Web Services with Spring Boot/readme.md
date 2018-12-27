@@ -31,3 +31,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
 4. **Versioning And Authentication**
   - URIs, Request Parameter, Header Parameter, Content Negotiation, Choice Factors, Authentication.
 5. **JPA Integration**
+ - Connecting to JPA.
