@@ -133,3 +133,47 @@ public class VersioningController {
 - **Caching** - The last two solution cause complicated cache.
 - **Browser Interactions** - The last two solution cannot be executed on common browsers.
 - **Api Documentation** - Generate documentation on the first two solutions is easier than the last ones.
+
+---
+
+## Authentication
+
+To add the authentication is necessary to add the dependency:
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+  </dependency>
+</dependencies>
+```
+On every Spring start will be generate a new password and showed in the console:
+
+`Using generated security password: *********`
+
+The default user is **user**.
+
+If the password on a request is not provided will be raise a **401 Unauthorized** response.
+
+It is possible to configure the password in the **application.properties** file:
+
+```
+// Video Version
+security.user.name=lordalucard90
+security.user.password=weakpassword
+
+// My Version
+spring.security.user.name=lordalucard90
+spring.security.user.password=weakpassword
+```
+
+It is also possible force the authentication for management service introduce earlier:
+
+```
+// Video Version
+management.security.enabled=true
+
+// My Version
+spring.management.security.enabled=true
+```
