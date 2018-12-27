@@ -40,3 +40,81 @@ The database web console is available at http://localhost:8080/h2-console.
 It is important change the **JDBC URL** from `jdbc:h2:~/test` to  `jdbc:h2:mem:testdb`.
 
 It is also possible set some default test data by creating a new **data.sql** file in `src/main/resources` folder.
+
+---
+
+## JPA Repository
+
+To access to the database data is necessary implement the `JpaRepository` interface:
+
+```java
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+}
+```
+ For the User class the `JpaRepository` manages the `User` class and the primary key is a `Integer` type.
+
+It is now possible inject the repository:
+
+```java
+  @Autowired
+  private UserRepository userRepository;
+```
+
+And use it for the queries in the controller:
+
+#### retrieveAllUsers
+
+```java
+@GetMapping(path = "/jpa/users")
+public List<User> retrieveAllUsers(){
+    return userRepository.findAll();
+}
+```
+
+#### retrieveSingleUsers
+
+```java
+@GetMapping(path = "/jpa/users/{id}")
+public Resource<User> retrieveSingleUsers(@PathVariable int id){
+    Optional<User> user = userRepository.findById(id);
+    if (!user.isPresent())
+        throw new UserNotFoundException("id-" + id);
+
+    Resource<User> resource = new Resource<User>(user.get());
+
+    ...
+}
+```
+
+The **findById** method return a **Optional<Object>**, this object has two important method:
+
+- **isPresent** - checks if the user is null.
+- **get** - return the user object.
+
+#### deleteSingleUsers
+
+```java
+@DeleteMapping(path = "/jpa/users/{id}")
+public void deleteSingleUsers(@PathVariable int id){
+    userRepository.deleteById(id);
+}
+```
+
+The **deleteById** automatically manages the deletion of a user and it returns **void**.
+
+So the status code of the correct deletion will be **200 OK**.
+
+#### createUser
+
+```java
+@PostMapping(path = "/jpa/users")
+public ResponseEntity<Object> createUser(@Valid @RequestBody User user){
+    User savedUser = userRepository.save(user);
+    ...
+}
+```
+Since the database tries to add a user with id 1 is necessary change the default data created id to avoid any conflict.
