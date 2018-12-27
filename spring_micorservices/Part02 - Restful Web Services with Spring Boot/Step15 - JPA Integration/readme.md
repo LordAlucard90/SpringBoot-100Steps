@@ -118,3 +118,44 @@ public ResponseEntity<Object> createUser(@Valid @RequestBody User user){
 }
 ```
 Since the database tries to add a user with id 1 is necessary change the default data created id to avoid any conflict.
+
+---
+
+## Entity Relationships
+
+Since as User can have multiple posts there is a many to one relationship from post to user:
+
+```java
+@Entity
+public class Post {
+
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private User user;
+
+    // getters and setters
+}
+```
+
+Where `FetchType.LAZY` loads the user info only if the user getter method is called.
+
+There is also a one to many relationship from the user to the posts:
+
+It is **important** add `@JsonIgnore` to user to avoid a request loop from uses to post to user and so on when the posts are retrieved.
+
+```java
+public class User {
+    ...
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+    ...
+}
+```
+Where `mappedBy` defines the related field on post class.
