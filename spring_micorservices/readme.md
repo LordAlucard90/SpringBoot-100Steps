@@ -22,3 +22,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
   4. Versioning And Authentication
   5. JPA Integration
   6. Best Practices
+3. **Microservices with Spring Cloud**
