@@ -20,7 +20,6 @@ Generate Spring Boot Initial project from [Spring Initializr](https://start.spri
 2. Select unzipped folder
 3. `Import project from external model` > `Maven`
 4. `next` until finish
-5. `Run` > `Edit Configurations`
 7. `build` > `Build Project`
 8. now you can run it
 
