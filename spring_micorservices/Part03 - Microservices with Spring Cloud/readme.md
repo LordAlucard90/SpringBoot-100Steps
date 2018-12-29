@@ -6,3 +6,8 @@
   - Spring Cloud
   - Microservice Advantages
   - Microservice Components
+2. **Setting up Limits Microservices**
+  - Initialization
+  - Import project into IntelliJ IDEA
+  - Enable spring-boot-devtools livereload on IntelliJ IDEA
+  
