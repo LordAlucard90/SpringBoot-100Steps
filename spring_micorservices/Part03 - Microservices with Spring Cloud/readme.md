@@ -10,4 +10,4 @@
   - Initialization
   - Import project into IntelliJ IDEA
   - Enable spring-boot-devtools livereload on IntelliJ IDEA
-  
+  - Retrieving Configuration
