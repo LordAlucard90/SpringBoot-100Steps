@@ -12,4 +12,8 @@
   - Enable spring-boot-devtools livereload on IntelliJ IDEA
   - Retrieving Configuration
 3. **Spring Cloud Config Server**
-  - 
+  - Initialization
+  - Import project into IntelliJ IDEA
+  - Enable spring-boot-devtools livereload on IntelliJ IDEA
+  - Basic Configuration
+  - Git Repository
