@@ -141,3 +141,88 @@ Where:
 - **propertySources** - are the properties retrieved.
 - **propertySources/name** - is the file path.
 - **propertySources/source** - are the properties on limits-service.properties file.
+
+---
+
+## Setting Up Different Environments
+
+It is possible create different environments by creating new files on the git repository like:
+
+- **limits-service-`dev`.properties**
+- **limits-service-`qa`.properties**
+
+It is now possible change the default values:
+
+```
+# dev
+limit-service.minimum=1
+limit-service.maximum=111
+# qa
+limit-service.minimum=2
+limit-service.maximum=222
+```
+
+The new files are added to the server after a commit:
+
+```bash
+$ git add -A # add all
+$ git commit -m "limits-service dev and qa created"
+```
+
+The new configurations are available at the urls:
+
+- **dev** - http://localhost:8888/limits-service/dev
+- **qa** - http://localhost:8888/limits-service/qa
+
+For example the **dev** response is:
+
+```json
+{
+  "name":"limits-service",
+  "profiles":["dev"],
+  "label":null,
+  "version":"192033d0f6efbdbd30d9389361aa0969eab144ef",
+  "state":null,
+  "propertySources":[
+    {
+      "name":"file:///.../git-localconfig-repo//limits-service-dev.properties",
+      "source":{
+        "limit-service.minimum":"1"
+      }
+    },
+    {
+      "name":"file:///.../git-localconfig-repo//limits-service.properties",
+      "source":{
+        "limit-service.minimum":"8",
+        "limit-service.maximum":"888"}
+      }
+  ]
+}
+```
+
+The `sources` are presented by priority: first the current asked then the default configuration.
+
+If a value is not overwritten by the current configuration the default value is used.
+
+---
+
+## Connect Service to Config Server
+
+To make able the `limist-service` to retrieve the parameters from the Config Server **application.properties** hat to be renamed with **bootstrap.properties** with these parameters:
+
+```
+# Service And Configuration Name
+spring.application.name = limits-service
+# Config Server Url
+spring.cloud.config.uri = http://localhost:8888
+```
+
+Now it is possible to go to http://localhost:8080/limits and see the default parameters defined in **limits-service.properties**
+
+#### Retrieving Different Environment
+
+It is possible to set a specific environment by specifying it in the **bootstrap.properties** file:
+
+```
+spring.profiles.active = dev
+```

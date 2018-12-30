@@ -17,3 +17,5 @@
   - Enable spring-boot-devtools livereload on IntelliJ IDEA
   - Basic Configuration
   - Git Repository
+  - Setting Up Different Environments
+  - Connect Service to Config Server
