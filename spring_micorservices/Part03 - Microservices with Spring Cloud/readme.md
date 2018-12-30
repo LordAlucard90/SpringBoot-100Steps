@@ -19,3 +19,4 @@
   - Git Repository
   - Setting Up Different Environments
   - Connect Service to Config Server
+  4. **Currency Exchange Microservices**
