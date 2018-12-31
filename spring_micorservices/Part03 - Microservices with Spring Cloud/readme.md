@@ -25,3 +25,6 @@
   - Enable spring-boot-devtools livereload on IntelliJ IDEA
   - Basic Configuration
   - Currency Exchange Controller
+  - Create Multiple Run Configurations In IntelliJ-IDEA
+  - Running Multiple Instances
+  - JPA Connection

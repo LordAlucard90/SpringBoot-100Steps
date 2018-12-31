@@ -84,3 +84,127 @@ It is now possible retrieve the `conversionMultiple` at http://localhost:8000/cu
   "conversionMultiple": 65
 }
 ```
+---
+
+## Create Multiple Run Configurations In IntelliJ-IDEA
+
+- `Run` > `Edit Configurations`
+- `+` > `Spring Boot`
+  - `Name` = Configuration Name
+  - `Main Class` = PackageName.ClassName
+  - `Override Parameters` > `+`
+    - `name` = Parameter Name
+    - `value` = New Parameter Value
+
+---
+
+## Running Multiple Instances
+
+Using the procedure above it is possible to override the default **application.properties** variables and run multiple service instances with different port:
+
+```java
+import org.springframework.core.env.Environment;
+
+@RestController
+public class CurrencyExchangeController {
+
+    @Autowired
+    private Environment environment;
+
+    @GetMapping("/currency-exchange/from/{from}/to/{to}")
+    public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to){
+        ExchangeValue exchangeValue = new ExchangeValue(1000L, from, to, BigDecimal.valueOf(65));
+        exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+        return exchangeValue;
+    }
+}
+```
+
+```java
+public class ExchangeValue {
+    // other parameters
+
+    private int port;
+
+    // constructors
+
+    // getters
+
+    // port setter
+}
+```
+
+It is now possible to retrieve the server port from the response:
+
+```json
+{
+  "id":1000,
+  "from":"USD",
+  "to":"INR",
+  "conversionMultiple":65,
+  "port":8001
+}
+```
+---
+
+## JPA Connection
+
+It is possible create the persistence of `CurrencyExchange` in this way:
+
+```java
+@Entity
+public class ExchangeValue {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(name = "currency_from")
+    private String from;
+
+    @Column(name = "currency_to")
+    private String to;
+
+    private BigDecimal conversionMultiple;
+
+    private int port;
+
+    // constructors
+
+    // getters
+
+    // port setter
+}
+```
+
+`@Column` it is necessary to change the parameters' name because sql uses them.
+
+It is possible tell JPA to automatically implement searches:
+
+```java
+public interface ExchangeValueRepository extends JpaRepository<ExchangeValue, Long> {
+
+    ExchangeValue findByFromAndTo(String from, String to);
+}
+```
+
+It is now possible retrieve the currency exchange multiple:
+
+```java
+@RestController
+public class CurrencyExchangeController {
+
+    @Autowired
+    private Environment environment;
+
+    @Autowired
+    private ExchangeValueRepository repository;
+
+    @GetMapping("/currency-exchange/from/{from}/to/{to}")
+    public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to){
+        ExchangeValue exchangeValue = repository.findByFromAndTo(from, to);
+        exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+        return exchangeValue;
+    }
+}
+```
