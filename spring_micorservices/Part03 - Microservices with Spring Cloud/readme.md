@@ -28,7 +28,7 @@
   - Create Multiple Run Configurations In IntelliJ-IDEA
   - Running Multiple Instances
   - JPA Connection
-- **Currency Conversion Microservices**
+5. **Currency Conversion Microservices**
   - Initialization
   - Import project into IntelliJ IDEA
   - Enable spring-boot-devtools livereload on IntelliJ IDEA
@@ -36,3 +36,4 @@
   - Currency Conversion Controller
   - Invoking Currency Exchange Microservices
   - Improving Invokes With Feign REST Client
+6. **Ribbon And Eureka**
