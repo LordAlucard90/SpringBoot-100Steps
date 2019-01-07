@@ -85,7 +85,7 @@ The request uri for version 1 will be: `/person?version=1`
 
 ## Header Parameter
 
-another way is to specify the version in the header:
+Another way is to specify the version in the header:
 
 ```java
 @RestController
@@ -168,7 +168,7 @@ spring.security.user.name=lordalucard90
 spring.security.user.password=weakpassword
 ```
 
-It is also possible force the authentication for management service introduce earlier:
+It is also possible force the authentication for management service introduced earlier:
 
 ```
 // Video Version
