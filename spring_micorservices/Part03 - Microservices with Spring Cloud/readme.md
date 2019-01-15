@@ -40,3 +40,4 @@
     - Ribbon, @RibbonClient
     - Creating Eureka Service
     - Registering Services To Eureka, @EnableDiscoveryClient
+7. **Zuul**

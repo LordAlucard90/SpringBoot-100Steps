@@ -29,3 +29,4 @@ This sections uses Spring Boot 2.0.0, instead I'll have to use Spring Boot 2.1.1
     4. Currency Exchange Microservices
     5. Currency Conversion Microservices
     6. Ribbon And Eureka
+    7. Zuul
