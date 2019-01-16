@@ -45,3 +45,4 @@
     - Activating Zuul Porxy, `@EnableZuulProxy`
     - Logging Filter, ZuulFilter
     - Sending Requests Through Zuul
+8. **Distributed Tracing**
