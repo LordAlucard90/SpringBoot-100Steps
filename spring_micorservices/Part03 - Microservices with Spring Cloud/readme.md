@@ -41,3 +41,7 @@
     - Creating Eureka Service
     - Registering Services To Eureka, @EnableDiscoveryClient
 7. **Zuul**
+    - Creating Zuul Service
+    - Activating Zuul Porxy, `@EnableZuulProxy`
+    - Logging Filter, ZuulFilter
+    - Sending Requests Through Zuul
