@@ -1,6 +1,8 @@
 package com.lordalucard90.microservices.currencyconversionservice;
 
 import com.lordalucard90.microservices.currencyconversionservice.bean.CurrencyConversionBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,8 @@ import java.util.Map;
 
 @RestController
 public class CurrencyConversionController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private CurrencyExchangeServiceProxy proxy;
@@ -50,6 +54,8 @@ public class CurrencyConversionController {
                                                   @PathVariable BigDecimal quantity){
 
         CurrencyConversionBean response = proxy.retrieveExchangeValue(from, to);
+
+        logger.info("{}", response);
 
         return new CurrencyConversionBean(
                 response.getId(),

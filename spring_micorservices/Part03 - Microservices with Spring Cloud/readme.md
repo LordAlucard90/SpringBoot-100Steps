@@ -46,3 +46,6 @@
     - Logging Filter, ZuulFilter
     - Sending Requests Through Zuul
 8. **Distributed Tracing**
+    - Spring Cloud Sleuth, Sampler
+    - RabbitMQ
+    - Zipkin
