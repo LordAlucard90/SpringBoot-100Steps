@@ -122,3 +122,89 @@ In order to log messages in `Zipkin` format and put them  into `RabbitMQ` the fo
 It is now possible to go to `Zipkin` home page, select the `service name` and click on `find-trace` to show all traces.
 
 Selecting a single trace it is possible to see all its requests and, by clicking on a request, see all its information.
+
+---
+
+## Spring Cloud Bus
+
+When a change is committed in the `git-localconfig-repo`. while the `limits-service` is running like:
+
+```
+// limits-service-qa.properties
+limit-service.minimum=22 // from 2 to 22
+limit-service.maximum=222
+```
+
+The update is not visible at http://localhost:8080/limits until the service is restarted.
+
+It is possible update the limits values while the service is running by adding to **bootstrap.properties**:
+```
+management.endpoints.web.exposure.include=bus-refresh
+```
+And by executing a `POST` request at http://localhost:8080/actuator/bus-refresh
+
+When there are many services running is not possible made a request to each one.
+
+Using `RabbitMQ` and adding to `limits-service` and `config-server` the dependency:
+
+```xml
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+</dependency>
+```
+
+It is possible to update all the services running with only one POST request to one of the running services.
+
+---
+
+## Hystrix
+
+`Hystrix` is a fault tolerance method used to provide default values in case of failures in order to prevent chain failures.
+
+The dependency is:
+
+```xml
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+</dependency>
+```
+
+`Hystrix` has to be activated in this way:
+
+```java
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+
+@SpringBootApplication
+@EnableHystrix
+public class LimitsServicesApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(LimitsServicesApplication.class, args);
+	}
+
+}
+```
+
+it is possible to implement fault tolerance in this way:
+
+```java
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@RestController
+public class LimitsConfigurationController {
+    ...
+
+    @GetMapping("/fault-tolerance-example")
+    @HystrixCommand(fallbackMethod = "fallbackRetrieveConfiguration")
+    public LimitsConfiguration retrieveConfiguration(){
+        throw new RuntimeException("Not Available");
+    }
+
+    public LimitsConfiguration fallbackRetrieveConfiguration(){
+        return new LimitsConfiguration(999, 9);
+    }
+}
+```
+
+`@HystrixCommand(fallbackMethod = "fallbackRetrieveConfiguration")` specifies the method called if the current one fails.

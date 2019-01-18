@@ -49,3 +49,5 @@
     - Spring Cloud Sleuth, Sampler
     - RabbitMQ
     - Zipkin
+    - Spring Cloud Bus
+    - Hystrix, `@EnableHystrix`, `@HystrixCommand`
