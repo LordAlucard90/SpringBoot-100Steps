@@ -1,4 +1,4 @@
-## Step 03 - Demystifying some of the Spring Boot magic
+# Step 03 - Demystifying some of the Spring Boot magic
 
 ## spring-boot-starter-parent
 

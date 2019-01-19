@@ -29,5 +29,5 @@ hs_err_pid*
 *.ipr
 
 # subfolder projects
-!*/*/*/*/.mvn/wrapper/maven-wrapper.jar
-*/*/*/target/
+!**/maven-wrapper.jar
+**/target/
