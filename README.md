@@ -9,8 +9,6 @@ Each Course is divided by the main topics and each one is divided by the differe
 
 Since the courses belong to the same teacher, some topics overlap, for this reason I'll divide the repository by topics, not by courses.
 
-copy and paste the identical part and add the differences (if present).
-
 The courses use different versions of Spring Boot, instead I'll use Spring Boot 2.1.x, so I'll annotate the differences when needed.
 
 In the courses is used Eclipse, instead I'll use IntelliJ IDEA, so I'll annotate how some stuff are made with this IDE.
