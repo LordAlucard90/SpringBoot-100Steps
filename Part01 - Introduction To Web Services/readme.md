@@ -66,7 +66,6 @@ It use http protocol for the requests and the responses.
 It uses resources. Resources have:
 - **URI** - Uniform Resource Identifier, like /user/hone.
 - different representations, like XML, HTML, JSON.
-- **** - .
 
 Example of **CRUD** (Create/Read/Update/Delete) operations are:
 - Create an user: `POST /users`

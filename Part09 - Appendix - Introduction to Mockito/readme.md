@@ -101,3 +101,41 @@ public class SomeBusinessImpTest {
     }
 }
 ```
+---
+
+## Multiple Mock Returns
+
+It is possible to change the return of the mock object per every call necessary:
+
+```java
+public void testMultipleListReturns(){
+    List listMock = mock(List.class);
+    when(listMock.size()).thenReturn(10).thenReturn(20);
+    assertEquals(10, listMock.size());
+    assertEquals(20, listMock.size());
+}
+```
+
+By default if the mocked element is called with a different parameter it will return null:
+
+```java
+public void testMultipleListReturnsWithDifferentParameter(){
+    List listMock = mock(List.class);
+    when(listMock.get(0)).thenReturn("something");
+    assertEquals("something", listMock.get(0));
+    assertEquals(null, listMock.get(1));
+}
+```
+
+It is possible to return always the same value using `anyInt`:
+
+```java
+public void testSameListReturnsWithDifferentParameter(){
+    List listMock = mock(List.class);
+    when(listMock.get(Mockito.anyInt())).thenReturn("something");
+    assertEquals("something", listMock.get(0));
+    assertEquals("something", listMock.get(1));
+}
+```
+Mockito provides a lot of generic parameter for this scope.
+

@@ -54,6 +54,4 @@ In the courses is used Eclipse, instead I'll use IntelliJ IDEA, so I'll annotate
 7. **Appendix - Introduction to JPA with Spring Boot**
     1. *TBD*
 8. **Appendix - Introduction to JUnit**
-    1. *TBD*
 9. **Appendix - Introduction to Mockito**
-    1. *TBD*
